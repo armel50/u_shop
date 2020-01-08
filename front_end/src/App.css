@@ -1,0 +1,119 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+img.index{
+  height: '200px';
+  width: '200px';
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+div.ui.raised.segment.show{
+  width: 700px;
+  height: 900px;
+  position: absolute;
+  opacity: 1;
+  top: 550px;
+  left: 300px;
+}
+.dimed{
+  opacity: 0.5;
+}
+
+
+.back{
+  position: relative;
+  top: 0;
+  left: -320px;
+}
+.left_floated{
+  position: relative;
+  top: 20px;
+  left: -400px
+}
+
+.right_floated{
+  position: relative;
+  top:-200px; 
+  left: 350px;
+  width: 50em;
+}
+.negative.ui.button.remove{
+  margin-top: 20px;
+}
+img.index{
+  height: 300px;
+  width: 300px;
+}
+div.ui.raised.segment.centered {
+  margin:  auto;
+  height: 600px;
+  margin-bottom: 100px;
+}
+form.ui.category.search{
+  margin: 30px;
+} 
+input.prompt{
+  width: 400px;
+  height: 60px;
+}
+div.ui.inverted.vertical.masthead.center.aligned.segment{
+  /* background: url('https://images.unsplash.com/photo-1556740714-a8395b3bf30f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'); */
+  background-position: center; /* Center the image */
+  height: 500px; /* You must set a specified height */
+
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  margin-bottom: 70px;
+}
+
+div.ui.large.secondary.inverted.pointing.menu{
+  border: 0;
+  
+}
+
+div.column{
+  margin: 20px 0;
+}
+
+div.ui.raised.segment{
+  height: 400px;
+  margin: 50px 0;
+}
+
+div.ui.inverted.vertical.footer.segment{
+  margin-top: 20px;
+}
+button:focus {outline:0;}
