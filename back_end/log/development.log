@@ -11490,3 +11490,155 @@ Processing by ArticlesController#index as */*
 Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/articles" for ::1 at 2020-01-08 02:28:22 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/home/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#index as */*
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:5
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-01-08 02:28:39 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/home/.rvm/gems/ruby-2.6.1/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/home/.rvm/gems/ruby-2.6.1/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2020-01-08 02:30:49 -0600
+Processing by ArticlesController#index as */*
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:5
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles_with_query/sldfjksljdfkj" for ::1 at 2020-01-08 02:31:00 -0600
+Processing by ArticlesController#articles_with_params as */*
+  Parameters: {"query"=>"sldfjksljdfkj"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE (name LIKE '%sldfjksljdfkj%')[0m
+  ↳ app/controllers/articles_controller.rb:11
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles_with_query/ksldkfjksdjf" for ::1 at 2020-01-08 02:31:02 -0600
+Processing by ArticlesController#articles_with_params as */*
+  Parameters: {"query"=>"ksldkfjksdjf"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE (name LIKE '%ksldkfjksdjf%')[0m
+  ↳ app/controllers/articles_controller.rb:11
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles_with_query/phone" for ::1 at 2020-01-08 02:31:06 -0600
+Processing by ArticlesController#articles_with_params as */*
+  Parameters: {"query"=>"phone"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE (name LIKE '%phone%')[0m
+  ↳ app/controllers/articles_controller.rb:11
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/carts/1" for ::1 at 2020-01-08 02:31:11 -0600
+Processing by CartsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:3
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:4
+Completed 200 OK in 34ms (Views: 5.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/articles" for ::1 at 2020-01-08 02:31:13 -0600
+Processing by ArticlesController#index as */*
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/articles_controller.rb:5
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/carts/1" for ::1 at 2020-01-08 02:31:16 -0600
+Processing by CartsController#update as JSON
+  Parameters: {"article_id"=>2, "id"=>"1", "cart"=>{}}
+Unpermitted parameters: :article_id, :cart
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:9
+Unpermitted parameters: :id, :cart
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/carts_controller.rb:11
+  [1m[36mArticle Update (1.0ms)[0m  [1m[33mUPDATE "articles" SET "cart_id" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["cart_id", 1], ["updated_at", "2020-01-08 08:31:16.199946"], ["id", 2]]
+  ↳ app/controllers/carts_controller.rb:11
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/carts_controller.rb:11
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+Completed 200 OK in 15ms (Views: 3.0ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/carts/1" for ::1 at 2020-01-08 02:31:17 -0600
+Processing by CartsController#update as JSON
+  Parameters: {"article_id"=>3, "id"=>"1", "cart"=>{}}
+Unpermitted parameters: :article_id, :cart
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:9
+Unpermitted parameters: :id, :cart
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/carts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/carts_controller.rb:11
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/carts/1" for ::1 at 2020-01-08 02:31:20 -0600
+Processing by CartsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:3
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:4
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/carts/1" for ::1 at 2020-01-08 02:31:47 -0600
+Processing by CartsController#destroy as JSON
+  Parameters: {"article_id"=>1, "id"=>"1", "cart"=>{}}
+Unpermitted parameters: :article_id, :cart
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:18
+Unpermitted parameters: :id, :cart
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:19
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[36mArticle Update All (0.5ms)[0m  [1m[33mUPDATE "articles" SET "cart_id" = NULL WHERE "articles"."cart_id" = ? AND "articles"."id" = ?[0m  [["cart_id", 1], ["id", 1]]
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:21
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/carts/1" for ::1 at 2020-01-08 02:31:51 -0600
+Processing by CartsController#destroy as JSON
+  Parameters: {"article_id"=>2, "id"=>"1", "cart"=>{}}
+Unpermitted parameters: :article_id, :cart
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:18
+Unpermitted parameters: :id, :cart
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:19
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[36mArticle Update All (0.6ms)[0m  [1m[33mUPDATE "articles" SET "cart_id" = NULL WHERE "articles"."cart_id" = ? AND "articles"."id" = ?[0m  [["cart_id", 1], ["id", 2]]
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."cart_id" = ?[0m  [["cart_id", 1]]
+  ↳ app/controllers/carts_controller.rb:21
+Completed 200 OK in 25ms (Views: 2.6ms | ActiveRecord: 10.6ms)
+
+
