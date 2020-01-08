@@ -1,8 +1,15 @@
 class ArticlesController < ApplicationController
     def index 
+        # binding.pry 
         articles = Article.all
-        render json: articles
+        render json: articles.sort_by{|article| article.name}
     end 
+
+    def articles_with_params
+                # binding.pry
+        articles = Article.where("name LIKE ?", "%#{params.permit(:query)[:query]}%")
+        render json: articles.sort_by{|article| article.name}
+    end
 
     def create 
         name = params.permit(:name)
